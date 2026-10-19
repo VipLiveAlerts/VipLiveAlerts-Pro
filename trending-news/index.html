@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="dark" />
+<title>VipLiveAlerts-Pro AI — AI Stock & Crypto Market Intelligence</title>
+<meta name="description" content="VipLiveAlerts-Pro AI — AI-powered stock and crypto market intelligence. Live alerts, watchlists, and investor tools. Join the VIP Telegram channel." />
+<link rel="canonical" href="https://viplivealerts-pro.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://viplivealerts-pro.com/" />
+<meta property="og:title" content="VipLiveAlerts-Pro AI — AI Stock & Crypto Market Intelligence" />
+<meta property="og:description" content="AI-powered market insights, crypto alerts, watchlists, and investor tools. Join the VIP Telegram channel." />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #07060e;
+    --bg-2: #0c0a1a;
+    --panel: #100d24;
+    --panel-2: #161130;
+    --line: #28204d;
+    --line-soft: #1c1739;
+    --ink: #f2f0ff;
+    --ink-2: #d0d0d0;
+    --ink-3: #6b5eff;
+    --accent: #6b5eff;
+    --accent-hi: #6b5eff;
+    --accent-deep: #3d2fbf;
+    --radius: 18px;
+    --font-display: "Unbounded", system-ui, sans-serif;
+    --font-body: "Archivo", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--accent); color: #fff; }
+
+  .wrap { width: min(1100px, 100% - 44px); margin-inline: auto; }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(7, 6, 14, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .nav-inner { display: flex; align-items: center; gap: 14px; padding: 12px 0; }
+  .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+  .nav-brand .logo {
+    width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 900; font-size: 18px; color: var(--accent);
+    flex-shrink: 0; min-width: 40px;
+  }
+  .nav-brand .bname { font-family: var(--font-mono); font-weight: 600; font-size: 13px; letter-spacing: 0.14em; line-height: 1.25; }
+  .nav-brand .bname span { color: var(--accent-hi); }
+  .nav-links { margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap; }
+  .nav-links a {
+    color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 600;
+    padding: 8px 13px; border-radius: 999px; white-space: nowrap;
+  }
+  .nav-links a:hover { color: var(--ink); background: var(--panel-2); }
+  .nav-links a.active { color: #fff; background: var(--accent-deep); }
+  @media (max-width: 640px) {
+    .nav-inner { flex-wrap: wrap; }
+    .nav-links { width: 100%; margin-left: 0; margin-top: 8px; }
+    .nav-links a { padding: 7px 11px; font-size: 13px; }
+    .nav-brand .bname { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: 84px 0 96px;
+    text-align: center;
+    background:
+      radial-gradient(640px 420px at 82% 18%, rgba(107, 94, 255, 0.28), transparent 65%),
+      radial-gradient(520px 380px at 8% 88%, rgba(107, 94, 255, 0.14), transparent 60%),
+      var(--bg);
+    border-bottom: 1px solid var(--line-soft);
+    overflow: hidden;
+  }
+  .kicker {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent-hi); margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5.5vw, 58px);
+    line-height: 1.15; letter-spacing: -0.01em;
+    max-width: 800px; margin: 0 auto 20px;
+    word-wrap: break-word; overflow-wrap: break-word;
+  }
+  .hero h1 .hl { color: var(--accent); }
+  .hero p {
+    color: var(--ink-2); font-size: 19px; max-width: 660px; margin: 0 auto 34px;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 16px 36px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700; font-size: 16px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    box-shadow: 0 8px 28px rgba(107, 94, 255, 0.35);
+  }
+  .btn:hover { background: #7a6cff; transform: translateY(-2px); box-shadow: 0 12px 34px rgba(107, 94, 255, 0.45); }
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--ink);
+    box-shadow: none;
+    margin-left: 12px;
+  }
+  .btn-outline:hover { background: var(--panel-2); }
+  .hero-ctas { display: flex; gap: 4px; justify-content: center; flex-wrap: wrap; }
+
+  /* ---------- Pricing ---------- */
+  .pricing { padding: 72px 0 88px; }
+  .section-head { text-align: center; margin-bottom: 44px; }
+  .section-head h2 {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 4vw, 38px);
+    margin-bottom: 12px;
+  }
+  .section-head h2 .hl { color: var(--accent); }
+  .section-head p { color: var(--ink-2); max-width: 560px; margin: 0 auto; }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+    padding: 36px 30px;
+    text-align: center;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+  }
+  .card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 44px rgba(107, 94, 255, 0.22);
+  }
+  .card.featured {
+    border-color: var(--accent);
+    background: linear-gradient(180deg, rgba(107,94,255,0.12), var(--panel) 55%);
+  }
+  .card .badge {
+    position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: #fff;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 5px 16px; border-radius: 999px; white-space: nowrap;
+  }
+  .card h3 {
+    font-family: var(--font-display); font-size: 20px; margin-bottom: 6px;
+  }
+  .card .per {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent-hi); margin-bottom: 18px;
+  }
+  .card .price {
+    font-family: var(--font-display); font-size: 44px; font-weight: 700; margin-bottom: 8px;
+  }
+  .card .price-note { color: var(--ink-2); font-size: 14px; margin-bottom: 26px; }
+  .card ul { list-style: none; text-align: left; margin: 0 0 28px; }
+  .card ul li {
+    color: var(--ink-2); font-size: 15px; padding: 8px 0 8px 28px;
+    border-bottom: 1px solid var(--line-soft); position: relative;
+  }
+  .card ul li:last-child { border-bottom: none; }
+  .card ul li::before {
+    content: "✓"; position: absolute; left: 4px; color: var(--accent); font-weight: 700;
+  }
+  .card .btn { width: 100%; text-align: center; }
+
+  /* ---------- Trust strip ---------- */
+  .trust {
+    border-top: 1px solid var(--line-soft);
+    padding: 48px 0;
+    text-align: center;
+  }
+  .trust .stats { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+  .trust .stat .n { font-family: var(--font-display); font-size: 30px; color: var(--accent); }
+  .trust .stat .l { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--line-soft);
+    padding: 36px 0 48px;
+    text-align: center;
+    color: var(--ink-2); font-size: 14px;
+  }
+  footer .flogo { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.14em; margin-bottom: 10px; }
+  footer .flogo span { color: var(--accent-hi); }
+  footer a { color: var(--accent-hi); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 860px) {
+    .cards { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+  }
+  @media (max-width: 640px) {
+    .hero { padding: 60px 0 70px; }
+    .hero p { font-size: 17px; }
+    .btn-outline { margin-left: 0; margin-top: 10px; }
+    .hero-ctas { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="#top" aria-label="VipLiveAlerts-Pro AI — home">
+      <span class="logo">V</span>
+      <span class="bname">VIPLIVEALERTS <span>— PRO AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="https://viplivealerts-nfts.pages.dev">NFT Collection</a>
+      <a href="trending-news/">Trending News</a>
+      <a href="crypto/">Crypto</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="kicker">VipLiveAlerts-Pro AI</div>
+    <h1>AI Stock &amp; Crypto <span class="hl">Market Intelligence</span></h1>
+    <p>Get access to AI-powered market insights, crypto alerts, watchlists, and investor tools — built for serious traders.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="https://t.me/VipLiveAlerts_Pro">Join Free Telegram Channel</a>
+      <a class="btn btn-outline" href="https://buy.stripe.com/4gM7sMc4edGe7Pmgj81kA04">Go VIP — $39.99/mo</a>
+    </div>
+  </div>
+</header>
+
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Choose Your <span class="hl">VIP Access</span></h2>
+      <p>One membership. Every signal, every alert, every tool — delivered to your private Telegram channel.</p>
+    </div>
+    <div class="cards">
+
+      <div class="card">
+        <h3>Monthly VIP</h3>
+        <div class="per">Billed Monthly</div>
+        <div class="price">$39.99</div>
+        <div class="price-note">per month · cancel anytime</div>
+        <ul>
+          <li>Private VIP Telegram channel</li>
+          <li>AI stock &amp; crypto alerts</li>
+          <li>Daily watchlists</li>
+          <li>Market intelligence briefings</li>
+        </ul>
+        <a class="btn" href="https://buy.stripe.com/4gM7sMc4edGe7Pmgj81kA04">Subscribe</a>
+      </div>
+
+      <div class="card featured">
+        <span class="badge">Best Value</span>
+        <h3>Annual VIP</h3>
+        <div class="per">Billed Yearly</div>
+        <div class="price">$377.77</div>
+        <div class="price-note">per year · 2 months free</div>
+        <ul>
+          <li>Everything in Monthly VIP</li>
+          <li>Priority alert delivery</li>
+          <li>Exclusive deep-dive reports</li>
+          <li>Member-only strategy sessions</li>
+        </ul>
+        <a class="btn" href="https://buy.stripe.com/6oUaEY1pA59I9Xu8QG1kA00">Subscribe</a>
+      </div>
+
+      <div class="card">
+        <h3>Platinum Life</h3>
+        <div class="per">One-Time Payment</div>
+        <div class="price">Lifetime</div>
+        <div class="price-note">pay once · access forever</div>
+        <ul>
+          <li>Everything in Annual VIP</li>
+          <li>Lifetime VIP status</li>
+          <li>Early access to new tools</li>
+          <li>Founding member perks</li>
+        </ul>
+        <a class="btn" href="https://buy.stripe.com/aFaaEY5FQ31Ab1y0ka1kA01">Join</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><div class="n">24/7</div><div class="l">Market Coverage</div></div>
+      <div class="stat"><div class="n">AI</div><div class="l">Powered Signals</div></div>
+      <div class="stat"><div class="n">VIP</div><div class="l">Private Channel</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flogo">VIPLIVEALERTS <span>— PRO AI</span></div>
+    <div>© 2026 VipLiveAlerts-Pro AI<br />Stock &amp; Crypto Intelligence Platform</div>
+  </div>
+</footer>
+
+</body>
+</html>
