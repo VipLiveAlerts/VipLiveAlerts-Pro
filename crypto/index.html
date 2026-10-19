@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trending News — VipLiveAlerts-Pro</title>
+<meta name="description" content="Trending stock and crypto news from VipLiveAlerts-Pro — market moves, whale alerts, and macro catalysts. Updated daily." />
+<link rel="canonical" href="https://viplivealerts-pro.com/trending-news/" />
+<meta property="og:title" content="Trending News — VipLiveAlerts-Pro" />
+<meta property="og:description" content="Trending stock and crypto news from VipLiveAlerts-Pro. Updated daily." />
+<meta property="og:url" content="https://viplivealerts-pro.com/trending-news/" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://viplivealerts-nfts.pages.dev/assets/piece-01-neon-drive.webp" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="VipLiveAlerts-Pro Trending News" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://viplivealerts-nfts.pages.dev/assets/piece-01-neon-drive.webp" />
+<meta name="twitter:image:alt" content="VipLiveAlerts-Pro Trending News" />
+<style>
+  :root {
+    --bg: #07060e; --bg-2: #0c0a1a; --panel: #100d24; --panel-2: #161130;
+    --line: #28204d; --line-soft: #1c1739;
+    --ink: #f2f0ff; --ink-2: #d0d0d0; --ink-3: #6b5eff;
+    --accent: #6b5eff; --accent-hi: #6b5eff; --accent-deep: #3d2fbf;
+    --radius: 18px;
+    --font-display: "Unbounded", system-ui, sans-serif;
+    --font-body: "Archivo", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { overflow-x: hidden; width: 100%; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; width: 100%; }
+  .nav { position: sticky; top: 0; z-index: 50; background: rgba(7,6,14,.88); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line-soft); }
+  .nav-inner { display: flex; align-items: center; padding: 14px 16px; max-width: 100%; overflow: hidden; }
+  .nav-brand { display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+  .nav-brand .bname { font-family: var(--font-mono); font-weight: 600; font-size: 13px; letter-spacing: .14em; }
+  .nav-brand .bname span { color: var(--accent-hi); }
+  .nav-links { margin-left: auto; display: flex; gap: 6px; }
+  .nav-links a { color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 13px; border-radius: 999px; }
+  .nav-links a:hover { color: var(--ink); background: var(--panel-2); }
+  .nav-links a.active { color: #fff; background: var(--accent-deep); }
+  @media (max-width: 640px) { .nav-links a { padding: 8px 9px; font-size: 13px; } .nav-brand .bname { display: none; } }
+  header.hero { padding: 64px 0 30px; text-align: center; }
+  .kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--accent-hi); margin-bottom: 14px; }
+  h1 { font-family: var(--font-display); font-size: clamp(28px, 7vw, 52px); letter-spacing: -.01em; word-wrap: break-word; overflow-wrap: break-word; max-width: 100%; }
+  h1 .hl { color: var(--accent); }
+  .lede { color: var(--ink-2); max-width: 640px; margin: 14px auto 0; }
+  .posts { display: grid; gap: 22px; padding: 30px 0 70px; }
+  .post { background: var(--panel); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 28px; transition: border-color .2s, transform .2s; max-width: 100%; box-sizing: border-box; }
+  @media (max-width: 640px) { .post { padding: 20px 16px; } .post h2 { font-size: 1.3rem; word-wrap: break-word; } }
+  .post:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .post .date { font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-hi); margin-bottom: 10px; }
+  .post h2 { font-family: var(--font-display); font-size: 22px; margin-bottom: 10px; }
+  .post h2 a { color: var(--ink); text-decoration: none; }
+  .post h2 a:hover { color: var(--accent-hi); }
+  .post p { color: var(--ink-2); font-size: 15px; }
+  .post .tags { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .post .tags span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); border: 1px solid var(--line); border-radius: 999px; padding: 4px 11px; }
+  .empty { text-align: center; color: var(--ink-3); padding: 60px 0; }
+  footer { border-top: 1px solid var(--line-soft); padding: 30px 0 46px; text-align: center; color: var(--ink-3); font-size: 13px; }
+  footer a { color: var(--accent-hi); text-decoration: none; }
+    .parallax-slow { transition: transform 0.1s ease-out; }
+  /* LIVE feed indicator */
+  .live-bar { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 6px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-2); }
+  .live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; animation: livePulse 1.6s ease-in-out infinite; }
+  @keyframes livePulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.75); } }
+  .live-time { color: var(--ink-3); letter-spacing: .08em; }
+  .new-banner { display: none; margin: 0 auto 18px; max-width: 560px; background: var(--panel-2); border: 1px solid var(--accent); border-radius: 999px; padding: 10px 20px; text-align: center; font-size: 14px; font-weight: 600; color: var(--ink); cursor: pointer; }
+  .new-banner.show { display: block; }
+  .new-banner:hover { background: var(--accent-deep); }
+  .live-dot.green { background: #00ff88; box-shadow: 0 0 10px #00ff88; }
+  .live-dot.red { background: #ff4444; box-shadow: 0 0 10px #ff4444; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
+  .live-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="../" aria-label="VipLiveAlerts-Pro AI — home">
+      <span class="bname">VIPLIVEALERTS <span>— PRO AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../">VIP</a>
+      <a href="https://viplivealerts-nfts.pages.dev">NFT Collection</a>
+      <a href="./" class="active">Trending News</a>
+      <a href="../crypto/">Crypto</a>
+    </div>
+  </div>
+</nav>
+    <div class="live-bar"><span class="live-dot green" id="liveDotNews"></span> LIVE <span class="live-time" id="liveTime">—</span></div>
+<script>
+(function(){
+  function updateNewsDot(){
+    fetch('https://api.alternative.me/fng/?limit=1')
+      .then(function(r){ return r.json(); })
+      .then(function(f){
+        var d = (f.data && f.data[0]) || {};
+        var v = parseInt(d.value, 10);
+        var dot = document.getElementById('liveDotNews');
+        if (dot && !isNaN(v)) dot.className = 'live-dot ' + (v < 50 ? 'green' : 'red');
+      }).catch(function(){});
+  }
+  updateNewsDot();
+  setInterval(updateNewsDot, 60000);
+})();
+</script>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">VipLiveAlerts-Pro</div>
+    <h1>Trending <span class="hl">News</span></h1>
+    <div style="margin-top: 10px;"><span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #6b5eff; border: 1px solid #6b5eff; border-radius: 999px; padding: 4px 12px;">Updated Daily</span></div>
+    <p class="lede">Stock and crypto market moves, whale alerts, and macro catalysts — curated for traders.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="new-banner" id="newBanner"></div>
+  <div class="posts" id="posts"><div class="empty">Loading news…</div></div>
+  <div class="news-cta" style="background:linear-gradient(135deg,var(--panel) 0%,#171233 100%);border:1px solid var(--line);border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:60px;">
+    <h3 style="font-family:var(--font-display);font-size:22px;margin-bottom:8px;">VipLiveAlerts-Pro NFT Collection</h3>
+    <p style="color:var(--ink-2);font-size:14px;margin-bottom:18px;">50 live animated NFTs — explore the metaverse collection.</p>
+    <a href="https://viplivealerts-nfts.pages.dev" style="display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:12px 28px;border-radius:999px;text-decoration:none;">View NFT Collection</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 VipLiveAlerts-Pro · <a href="../">VIP Membership</a> · <a href="../crypto/">Crypto</a> · <a href="https://viplivealerts-nfts.pages.dev">NFT Collection</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var REFRESH_MS = 5 * 60 * 1000; // 5 minutes
+  var el = document.getElementById('posts');
+  var banner = document.getElementById('newBanner');
+  var seen = {}; // urls currently rendered
+
+  function render(posts){
+    if(!posts || !posts.length){ el.innerHTML = '<div class="empty">No news yet — check back soon.</div>'; return; }
+    el.innerHTML = posts.map(function(p){
+      var tags = (p.tags||[]).map(function(t){ return '<span>'+escapeHtml(t)+'</span>'; }).join('');
+      return '<article class="post">' +
+        '<div class="date">' + escapeHtml(p.date) + '</div>' +
+        '<h2><a href="' + escapeHtml(p.url) + '">' + escapeHtml(p.title) + '</a></h2>' +
+        '<p>' + escapeHtml(p.excerpt) + '</p>' +
+        (tags ? '<div class="tags">' + tags + '</div>' : '') +
+        '</article>';
+    }).join('');
+  }
+
+  function escapeHtml(s){
+    return String(s == null ? '' : s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+
+  function keySet(posts){
+    var m = {};
+    (posts||[]).forEach(function(p){ m[p.url] = true; });
+    return m;
+  }
+
+  function load(isRefresh){
+    fetch('posts.json?_=' + Date.now())
+      .then(function(r){ return r.json(); })
+      .then(function(posts){
+        if(isRefresh){
+          var current = keySet(posts);
+          var fresh = 0;
+          Object.keys(current).forEach(function(u){ if(!seen[u]) fresh++; });
+          if(fresh > 0){
+            banner.textContent = fresh + (fresh === 1 ? ' new article' : ' new articles') + ' — tap to load';
+            banner.classList.add('show');
+            banner.onclick = function(){
+              render(posts);
+              seen = current;
+              banner.classList.remove('show');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+            return; // keep old list until user taps
+          }
+        }
+        render(posts);
+        seen = keySet(posts);
+        banner.classList.remove('show');
+      })
+      .catch(function(){
+        if(!isRefresh) el.innerHTML = '<div class="empty">Could not load news.</div>';
+      });
+  }
+
+  function tickClock(){
+    try {
+      document.getElementById('liveTime').textContent =
+        '· UPDATED ' + new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' }).toUpperCase();
+    } catch(e){}
+  }
+
+  load(false);
+  tickClock();
+  setInterval(tickClock, 1000);
+  setInterval(function(){ load(true); }, REFRESH_MS);
+})();
+</script>
+</body>
+</html>
