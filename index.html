@@ -1,203 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>VipLiveAlerts-Pro AI</title>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crypto — Live Prices & Tools — VipLiveAlerts-Pro</title>
+<meta name="description" content="Live cryptocurrency prices, market data, fear & greed index, TradingView charts and pro trading tools from VipLiveAlerts-Pro." />
+<link rel="canonical" href="https://viplivealerts-pro.com/crypto/" />
+<meta property="og:title" content="Crypto — Live Prices, Charts & Tools — VipLiveAlerts-Pro" />
+<meta property="og:description" content="Live crypto prices, fear & greed index, TradingView charts and pro trading tools." />
+<meta property="og:url" content="https://viplivealerts-pro.com/crypto/" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://viplivealerts-nfts.pages.dev/assets/piece-04-metaverse-vr.webp" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="VipLiveAlerts-Pro Crypto" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://viplivealerts-nfts.pages.dev/assets/piece-04-metaverse-vr.webp" />
+<meta name="twitter:image:alt" content="VipLiveAlerts-Pro Crypto" />
 <style>
-*{
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
-}
-
-body{
-margin:0;
-background:#050505;
-color:white;
-}
-
-.container{
-max-width:1000px;
-width:90%;
-margin:auto;
-}
-
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:25px;
-padding:30px 0;
-}
-
-.logo{
-font-size:28px;
-font-weight:900;
-}
-
-.logo span{
-color:#6B5EFF;
-}
-
-.btn{
-display:inline-block;
-background:#6B5EFF;
-color:white;
-padding:15px 30px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.btn:hover{
-opacity:.85;
-}
-
-.hero{
-text-align:center;
-padding:70px 0;
-}
-
-.hero h1{
-font-size:55px;
-}
-
-.hero span{
-color:#6B5EFF;
-}
-
-.hero p{
-color:#bbb;
-font-size:20px;
-max-width:700px;
-margin:25px auto;
-}
-
-.section{
-padding:40px 0;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card{
-background:#111;
-border:1px solid #6B5EFF;
-border-radius:20px;
-padding:30px;
-text-align:center;
-}
-
-.price{
-font-size:38px;
-font-weight:bold;
-margin:20px 0;
-}
-
-footer{
-text-align:center;
-padding:40px;
-color:#777;
-}
-
-@media(max-width:600px){
-header{
-flex-direction:column;
-}
-
-.hero h1{
-font-size:38px;
-}
-}
+  :root {
+    --bg: #07060e; --bg-2: #0c0a1a; --panel: #100d24; --panel-2: #161130;
+    --line: #28204d; --line-soft: #1c1739;
+    --ink: #f2f0ff; --ink-2: #d0d0d0; --ink-3: #6b5eff;
+    --accent: #6b5eff; --accent-hi: #6b5eff; --accent-deep: #3d2fbf;
+    --green: #22c55e; --red: #ef4444;
+    --radius: 18px;
+    --font-display: "Unbounded", system-ui, sans-serif;
+    --font-body: "Archivo", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { overflow-x: hidden; width: 100%; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; width: 100%; }
+  /* NAV — two-row wrap on mobile per user directive */
+  .nav { position: sticky; top: 0; z-index: 50; background: rgba(7,6,14,.88); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line-soft); }
+  .nav-inner { display: flex; align-items: center; padding: 14px 16px; max-width: 100%; overflow: hidden; flex-wrap: wrap; }
+  .nav-brand { display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; flex-shrink: 0; }
+  .nav-brand .bname { font-family: var(--font-mono); font-weight: 600; font-size: 13px; letter-spacing: .14em; }
+  .nav-brand .bname span { color: var(--accent-hi); }
+  .nav-links { margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap; }
+  .nav-links a { color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 13px; border-radius: 999px; white-space: nowrap; }
+  .nav-links a:hover { color: var(--ink); background: var(--panel-2); }
+  .nav-links a.active { color: #fff; background: var(--accent-deep); }
+  @media (max-width: 640px) {
+    .nav-inner { padding: 10px 12px; }
+    .nav-links { width: 100%; margin-left: 0; margin-top: 8px; }
+    .nav-links a { padding: 6px 10px; font-size: 12px; }
+    .nav-brand .bname { display: none; }
+  }
+  /* LIVE TICKER */
+  .ticker { border-bottom: 1px solid var(--line-soft); background: var(--bg-2); overflow: hidden; white-space: nowrap; font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; }
+  .ticker-track { display: inline-flex; padding: 9px 0; animation: tick 40s linear infinite; }
+  .ticker-track span { padding: 0 22px; color: var(--ink-2); }
+  .ticker-track b { color: var(--ink); font-weight: 600; }
+  .up { color: var(--green); } .down { color: var(--red); }
+  @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  /* HERO */
+  header.hero { padding: 56px 0 26px; text-align: center; }
+  .kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--accent-hi); margin-bottom: 14px; }
+  h1 { font-family: var(--font-display); font-size: clamp(28px, 7vw, 52px); letter-spacing: -.01em; word-wrap: break-word; overflow-wrap: break-word; max-width: 100%; }
+  h1 .hl { color: var(--accent); }
+  .lede { color: var(--ink-2); max-width: 640px; margin: 14px auto 0; }
+  .updated { font-family: var(--font-mono); font-size: 11px; color: var(--ink-2); opacity: .7; margin-top: 10px; letter-spacing: .1em; }
+  /* STAT CARDS */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 26px 0 8px; }
+  @media (max-width: 760px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat { background: var(--panel); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 18px; }
+  .stat .label { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 8px; }
+  .stat .value { font-family: var(--font-display); font-size: 22px; }
+  /* SECTIONS */
+  section.block { padding: 30px 0 10px; }
+  section.block h2 { font-family: var(--font-display); font-size: clamp(20px, 4vw, 28px); margin-bottom: 6px; }
+  section.block h2 .hl { color: var(--accent); }
+  section.block .sub { color: var(--ink-2); font-size: 14px; margin-bottom: 18px; }
+  /* TABLE */
+  .table-scroll { overflow-x: auto; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--panel); }
+  table.coins { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 14px; }
+  table.coins th { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); text-align: right; padding: 14px 16px; border-bottom: 1px solid var(--line-soft); white-space: nowrap; }
+  table.coins th:first-child, table.coins td:first-child { text-align: left; }
+  table.coins td { padding: 13px 16px; border-bottom: 1px solid var(--line-soft); text-align: right; white-space: nowrap; }
+  table.coins tr:last-child td { border-bottom: none; }
+  table.coins tr:hover td { background: var(--panel-2); }
+  td.coin { font-weight: 700; }
+  td.coin img { width: 22px; height: 22px; vertical-align: -5px; margin-right: 8px; border-radius: 50%; }
+  td.coin .sym { font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); margin-left: 6px; }
+  /* GAUGE */
+  .gauge-wrap { display: flex; gap: 24px; align-items: center; background: var(--panel); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 24px; flex-wrap: wrap; }
+  .gauge { flex: 0 0 220px; margin: 0 auto; }
+  .gauge-info { flex: 1; min-width: 220px; }
+  .gauge-info .fng-value { font-family: var(--font-display); font-size: 40px; }
+  .gauge-info .fng-label { font-family: var(--font-mono); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-hi); margin: 4px 0 10px; }
+  .gauge-info p { color: var(--ink-2); font-size: 14px; }
+  /* CHART */
+  .tv-wrap { border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; background: var(--panel); }
+  .tradingview-widget-container { height: 520px; }
+  .live-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 8px; animation: pulse 1.5s ease-in-out infinite; vertical-align: middle; }
+  .live-dot.green { background: #00ff88; box-shadow: 0 0 10px #00ff88; }
+  .live-dot.red { background: #ff4444; box-shadow: 0 0 10px #ff4444; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
+  .live-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
+  @media (max-width: 640px) { .tradingview-widget-container { height: 420px; } }
+  /* TOOLS GRID */
+  .tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 760px) { .tools { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 460px) { .tools { grid-template-columns: 1fr; } }
+  .tool { background: var(--panel); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 20px; text-decoration: none; color: var(--ink); display: block; transition: border-color .2s, transform .2s; }
+  .tool:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .tool .tname { font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+  .tool .tdesc { color: var(--ink-2); font-size: 13px; }
+  .tool .tcta { font-family: var(--font-mono); font-size: 12px; color: var(--accent-hi); margin-top: 10px; letter-spacing: .08em; }
+  /* NEWS CTA */
+  .news-cta { background: linear-gradient(135deg, var(--panel) 0%, #171233 100%); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; text-align: center; }
+  .news-cta h3 { font-family: var(--font-display); font-size: 22px; margin-bottom: 8px; }
+  .news-cta p { color: var(--ink-2); font-size: 14px; margin-bottom: 18px; }
+  .btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 12px 28px; border-radius: 999px; text-decoration: none; }
+  .btn:hover { background: var(--accent-deep); }
+  footer { border-top: 1px solid var(--line-soft); padding: 30px 0 46px; text-align: center; color: var(--ink-2); font-size: 13px; margin-top: 40px; }
+  footer a { color: var(--accent-hi); text-decoration: none; }
+  .disclaimer { font-size: 12px; color: var(--ink-2); opacity: .75; max-width: 720px; margin: 0 auto; }
 </style>
-
 </head>
-
 <body>
 
-<div class="container">
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="../" aria-label="VipLiveAlerts-Pro AI — home">
+      <span class="bname">VIPLIVEALERTS <span>— PRO AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../">VIP</a>
+      <a href="https://viplivealerts-nfts.pages.dev">NFT Collection</a>
+      <a href="../trending-news/">Trending News</a>
+      <a href="./" class="active">Crypto</a>
+    </div>
+  </div>
+</nav>
 
-<header>
+<div class="ticker" aria-hidden="true"><div class="ticker-track" id="tickerTrack"><span>Loading live prices…</span></div></div>
 
-<div class="logo">
-VipLiveAlerts-<span>Pro AI</span>
-</div>
-
-<a class="btn" href="https://buy.stripe.com/4gM7sMc4edGe7Pmgj81kA04">
-Join VIP Monthly
-</a>
-
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">VipLiveAlerts-Pro</div>
+    <h1>Live <span class="hl">Crypto</span> Data</h1>
+    <div class="live-label" style="margin-top: 8px;"><span class="live-dot green" id="liveDot2"></span>LIVE · UPDATED <span id="liveTime">—</span></div>
+    <p class="lede">Real-time prices, market stats, fear &amp; greed, pro charts and the trading tools we use every day.</p>
+  </div>
 </header>
 
+<main class="wrap">
 
-<section class="hero">
+  <div class="stats">
+    <div class="stat"><div class="label">Total Market Cap</div><div class="value" id="statMcap">—</div></div>
+    <div class="stat"><div class="label">BTC Dominance</div><div class="value" id="statBtcDom">—</div></div>
+    <div class="stat"><div class="label">Bitcoin Price</div><div class="value" id="statBtc">—</div></div>
+    <div class="stat"><div class="label">Fear &amp; Greed</div><div class="value" id="statFng">—</div></div>
+  </div>
 
-<h1>
-AI Stock & Crypto<br>
-<span>Market Intelligence</span>
-</h1>
+  <section class="block">
+    <h2>Top 10 <span class="hl">Cryptocurrencies</span></h2>
+    <p class="sub">Live prices and 24h performance. Auto-refreshes every 60 seconds.</p>
+    <div class="table-scroll">
+      <table class="coins">
+        <thead><tr><th>#</th><th>Coin</th><th>Price</th><th>24h %</th><th>Market Cap</th></tr></thead>
+        <tbody id="coinRows"><tr><td colspan="5" style="text-align:center;color:var(--ink-2)">Loading live market data…</td></tr></tbody>
+      </table>
+    </div>
+  </section>
 
-<p>
-Get access to AI-powered market insights, crypto alerts, watchlists, and investor tools.
-</p>
+  <section class="block">
+    <h2>Fear &amp; <span class="hl">Greed</span> Index</h2>
+    <p class="sub">Market sentiment right now — extreme fear is often a buying zone, extreme greed a caution flag.</p>
+    <div class="gauge-wrap">
+      <div class="gauge">
+        <svg viewBox="0 0 200 120" width="100%" role="img" aria-label="Fear and greed gauge">
+          <path d="M 20 105 A 85 85 0 0 1 180 105" fill="none" stroke="#1c1739" stroke-width="16" stroke-linecap="round"/>
+          <path id="gaugeArc" d="M 20 105 A 85 85 0 0 1 180 105" fill="none" stroke="#6b5eff" stroke-width="16" stroke-linecap="round" stroke-dasharray="267" stroke-dashoffset="267"/>
+          <line id="gaugeNeedle" x1="100" y1="105" x2="100" y2="35" stroke="#f2f0ff" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="105" r="7" fill="#f2f0ff"/>
+          <text id="gaugeText" x="100" y="98" text-anchor="middle" fill="#f2f0ff" font-size="26" font-weight="700" font-family="system-ui">—</text>
+        </svg>
+      </div>
+      <div class="gauge-info">
+        <div class="fng-value" id="fngValue">—</div>
+        <div class="fng-label" id="fngLabel">LOADING</div>
+        <p id="fngNote">Pulling the latest sentiment reading…</p>
+      </div>
+    </div>
+  </section>
 
-<a class="btn" href="https://t.me/VipLiveAlerts_Pro">
-Join Free Telegram Channel
-</a>
+  <section class="block">
+    <h2>Bitcoin <span class="hl">Chart</span></h2>
+    <p class="sub">Interactive TradingView chart — zoom, change timeframes, add indicators.</p>
+    <div class="tv-wrap">
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget" style="height:100%"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+        {
+          "symbol": "BITSTAMP:BTCUSD",
+          "interval": "D",
+          "theme": "dark",
+          "style": "1",
+          "locale": "en",
+          "hide_side_toolbar": false,
+          "allow_symbol_change": true,
+          "support_host": "https://www.tradingview.com"
+        }
+        </script>
+      </div>
+    </div>
+  </section>
 
-</section>
+  <section class="block">
+    <h2>Pro Trading <span class="hl">Tools</span></h2>
+    <p class="sub">The platforms in our stack. Sign up through these links to support VipLiveAlerts-Pro.</p>
+    <div class="tools" id="toolGrid"></div>
+  </section>
 
+  <section class="block">
+    <div class="news-cta">
+      <h3>Market-Moving News</h3>
+      <p>Whale alerts, breakouts and macro catalysts — published on our Trending News desk.</p>
+      <a class="btn" href="../trending-news/">Read Trending News</a>
+    </div>
+  </section>
 
-<section class="section">
+  <section class="block">
+    <div class="news-cta">
+      <h3>VipLiveAlerts-Pro NFT Collection</h3>
+      <p>50 live animated NFTs — every piece a living metaverse world. Explore the collection on our NFT site.</p>
+      <a class="btn" href="https://viplivealerts-nfts.pages.dev">View NFT Collection</a>
+    </div>
+  </section>
 
-<div class="cards">
+  <p class="disclaimer" style="margin-top:28px">Data by CoinGecko &amp; Alternative.me, refreshed every 60 seconds. Nothing here is financial advice — crypto is volatile, always do your own research.</p>
 
-
-<div class="card">
-<h2>Monthly VIP</h2>
-<div class="price">$39.99</div>
-<a class="btn" href="https://buy.stripe.com/4gM7sMc4edGe7Pmgj81kA04">
-Subscribe
-</a>
-</div>
-
-
-<div class="card">
-<h2>Annual VIP</h2>
-<div class="price">$377.77</div>
-<a class="btn" href="https://buy.stripe.com/6oUaEY1pA59I9Xu8QG1kA00">
-Subscribe
-</a>
-</div>
-
-
-<div class="card">
-<h2>Platinum Life</h2>
-<div class="price">Lifetime</div>
-<a class="btn" href="https://buy.stripe.com/aFaaEY5FQ31Ab1y0ka1kA01">
-Join
-</a>
-</div>
-
-
-</div>
-
-</section>
-
+</main>
 
 <footer>
-© 2026 VipLiveAlerts-Pro AI
-<br>
-Stock & Crypto Intelligence Platform
+  <div class="wrap">
+    <p>© 2026 VipLiveAlerts-Pro · <a href="../">VIP Membership</a> · <a href="../trending-news/">Trending News</a> · <a href="https://viplivealerts-nfts.pages.dev">NFT Collection</a></p>
+  </div>
 </footer>
 
+<script>
+(function(){
+  var COINS_URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false&price_change_percentage=24h';
+  var GLOBAL_URL = 'https://api.coingecko.com/api/v3/global';
+  var FNG_URL = 'https://api.alternative.me/fng/';
 
-</div>
+  var TOOLS = [
+    { name: 'Kraken', desc: 'Official Kraken Business Affiliate — one of the world\'s most trusted cryptocurrency exchanges.', url: 'https://kraken.pxf.io/9Lrydy' },
+    { name: 'Coinbase', desc: 'The easiest on-ramp — buy your first crypto in minutes.', url: 'https://coinbase.com/join/TGQ3JW7?src=ios-link' },
+    { name: 'Gemini', desc: 'Regulated US exchange with strong security.', url: 'https://www.gemini.com/share/8vv4kvyh9' },
+    { name: 'Webull', desc: 'Commission-free stocks & crypto in one app.', url: 'https://a.webull.com/KJLI7rm5Seb28I9Cg6' },
+    { name: 'TradingView', desc: 'The charting platform the pros actually use.', url: 'https://www.tradingview.com/?offer_id=10&aff_id=27456&source=VipLiveAlerts.com' },
+    { name: 'Scanz', desc: 'Real-time scanners for stocks breaking out.', url: 'http://www.scanz.com?fpr=viplivealerts' },
+    { name: 'CurPay', desc: 'VipLiveAlerts-Pro is Partnered with CurPay — crypto payments & merchant infrastructure.', url: 'https://www.curpaytrader.com?refer=VipLiveAlerts-Pro' }
+  ];
 
+  function fmtMoney(n){
+    if (n == null) return '—';
+    if (n >= 1e12) return '$' + (n/1e12).toFixed(2) + 'T';
+    if (n >= 1e9) return '$' + (n/1e9).toFixed(2) + 'B';
+    if (n >= 1e6) return '$' + (n/1e6).toFixed(2) + 'M';
+    return '$' + Number(n).toLocaleString('en-US', {maximumFractionDigits: 2});
+  }
+  function fmtPrice(p){
+    if (p == null) return '—';
+    if (p >= 100) return '$' + Number(p).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    if (p >= 1) return '$' + Number(p).toFixed(3);
+    return '$' + Number(p).toFixed(4);
+  }
+  function chgClass(v){ return v == null ? '' : (v >= 0 ? 'up' : 'down'); }
+  function chgTxt(v){ return v == null ? '—' : (v >= 0 ? '+' : '') + v.toFixed(2) + '%'; }
+
+  function renderTicker(coins){
+    var half = coins.map(function(c){
+      return '<span><b>' + c.symbol.toUpperCase() + '</b> ' + fmtPrice(c.current_price) +
+        ' <span class="' + chgClass(c.price_change_percentage_24h) + '">' + chgTxt(c.price_change_percentage_24h) + '</span></span>';
+    }).join('');
+    document.getElementById('tickerTrack').innerHTML = half + half;
+  }
+
+  function renderTable(coins){
+    document.getElementById('coinRows').innerHTML = coins.map(function(c){
+      return '<tr><td>' + c.market_cap_rank + '</td>' +
+        '<td class="coin"><img src="' + c.image + '" alt="" loading="lazy"/>' + c.name + '<span class="sym">' + c.symbol.toUpperCase() + '</span></td>' +
+        '<td>' + fmtPrice(c.current_price) + '</td>' +
+        '<td class="' + chgClass(c.price_change_percentage_24h) + '">' + chgTxt(c.price_change_percentage_24h) + '</td>' +
+        '<td>' + fmtMoney(c.market_cap) + '</td></tr>';
+    }).join('');
+  }
+
+  function renderGauge(value, label){
+    var v = Math.max(0, Math.min(100, Number(value) || 0));
+    var arc = document.getElementById('gaugeArc');
+    var needle = document.getElementById('gaugeNeedle');
+    var circ = 267;
+    arc.style.strokeDashoffset = circ - (circ * v / 100);
+    var color = v < 25 ? '#ef4444' : v < 45 ? '#f97316' : v < 55 ? '#eab308' : v < 75 ? '#a3e635' : '#22c55e';
+    arc.setAttribute('stroke', color);
+    var angle = 180 - (v / 100) * 180;
+    var rad = angle * Math.PI / 180;
+    needle.setAttribute('x2', 100 + 70 * Math.cos(rad));
+    needle.setAttribute('y2', 105 - 70 * Math.sin(rad));
+    document.getElementById('gaugeText').textContent = v;
+    document.getElementById('fngValue').textContent = v + ' / 100';
+    document.getElementById('fngLabel').textContent = (label || '').toUpperCase();
+    var note = document.getElementById('fngNote');
+    if (v < 25) note.textContent = 'Extreme fear — capitulation zones have historically been strong accumulation areas.';
+    else if (v < 45) note.textContent = 'Fear — caution in the market. Patient traders watch for confirmation.';
+    else if (v < 55) note.textContent = 'Neutral — the market is undecided. Let price action lead.';
+    else if (v < 75) note.textContent = 'Greed — momentum is strong. Manage risk and take profits into strength.';
+    else note.textContent = 'Extreme greed — euphoria zone. Tighten stops and avoid chasing.';
+    const dot = document.getElementById('liveDot2');
+    // Fear (<50) = green (buying opportunity), Greed (>=50) = red (caution)
+    if (dot) { dot.className = 'live-dot ' + (v < 50 ? 'green' : 'red'); }
+    document.getElementById('liveTime').textContent = new Date().toLocaleTimeString();
+    document.getElementById('statFng').textContent = v + ' ' + (label || '');
+  }
+
+  function renderTools(){
+    document.getElementById('toolGrid').innerHTML = TOOLS.map(function(t){
+      return '<a class="tool" href="' + t.url + '" target="_blank" rel="noopener sponsored">' +
+        '<div class="tname">' + t.name + '</div><div class="tdesc">' + t.desc + '</div>' +
+        '<div class="tcta">OPEN ' + t.name.toUpperCase() + ' →</div></a>';
+    }).join('');
+  }
+
+  function load(){
+    fetch(COINS_URL).then(function(r){ return r.json(); }).then(function(coins){
+      renderTicker(coins); renderTable(coins);
+      var btc = coins.find(function(c){ return c.id === 'bitcoin'; });
+      if (btc) {
+        document.getElementById('statBtc').innerHTML = fmtPrice(btc.current_price) +
+          ' <span class="' + chgClass(btc.price_change_percentage_24h) + '" style="font-size:14px">' + chgTxt(btc.price_change_percentage_24h) + '</span>';
+      }
+      stamp();
+    }).catch(function(){
+      document.getElementById('liveTime').textContent = 'FEED PAUSED';
+    });
+    fetch(GLOBAL_URL).then(function(r){ return r.json(); }).then(function(g){
+      var d = g.data || {};
+      if (d.total_market_cap) document.getElementById('statMcap').textContent = fmtMoney(d.total_market_cap.usd);
+      if (d.market_cap_percentage) document.getElementById('statBtcDom').textContent = Number(d.market_cap_percentage.btc).toFixed(1) + '%';
+    }).catch(function(){});
+    fetch(FNG_URL).then(function(r){ return r.json(); }).then(function(f){
+      var d = (f.data && f.data[0]) || {};
+      renderGauge(d.value, d.value_classification);
+    }).catch(function(){});
+  }
+
+  renderTools();
+  load();
+  setInterval(load, 60000);
+})();
+</script>
 </body>
 </html>
